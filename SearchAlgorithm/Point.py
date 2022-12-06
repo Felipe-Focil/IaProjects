@@ -53,6 +53,7 @@ class Point:
     def toString(self):
         s = "(" + str(self.x) + "," + str(self.y) + ")"
         return s
+
     def updateVal(self, c):
         self.val = c
 

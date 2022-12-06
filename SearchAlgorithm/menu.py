@@ -49,6 +49,6 @@ class Menu:
         self.setSampleBoard(brd)
         self.setAlgorithm(alg)
         self.run()
-        print("Continue? 1.Yes\n 2.No")
+        print("Exit? \n0.Yes \n1.No")
         opt = int(input())
         return opt

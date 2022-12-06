@@ -26,7 +26,7 @@ class Sample:
         return board
 
     def DFS(self):
-        board1 = bd.Board(200, 200)
+        board1 = bd.Board(5, 5)
 
         board1.addObstacule(p.Point(0, 1, 0))
         board1.addObstacule(p.Point(0, 3, 0))
@@ -38,7 +38,7 @@ class Sample:
         board1.addObstacule(p.Point(4, 3, 0))
 
         board1.setStart(p.Point(2, 2, 0))
-        board1.setGoal(p.Point(0, 5, 0))
+        board1.setGoal(p.Point(0, 4, 0))
         return board1
 
     def Hill(self):
@@ -78,6 +78,7 @@ class Sample:
 
         #board4.addObstacule(p.Point(1, 1, 0))
         board4.addObstacule(p.Point(2, 1, 0))
+        board4.addObstacule(p.Point(4, 3, 0))
 
         board4.setStart(p.Point(1, 0, 0))
         board4.setGoal(p.Point(4, 2, 0))

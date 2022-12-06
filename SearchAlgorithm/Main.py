@@ -1,8 +1,8 @@
-import menu
+import menu as menu
 
 Menu = menu.Menu()
 
 while True:
     opt = Menu.show()
-    if opt == 2:
+    if opt == 0:
         break

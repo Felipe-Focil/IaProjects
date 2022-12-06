@@ -19,8 +19,6 @@ class Board:
 
         self.clear()
 
-        
-
     def clear(self):
         self.mainPath = [False] * self.n
         for i in range(0, self.n):

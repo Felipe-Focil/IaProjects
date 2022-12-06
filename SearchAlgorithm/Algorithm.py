@@ -1,8 +1,8 @@
 import copy
-import O22IaFinalProject.SearchAlgorithm.Board as bd
-import O22IaFinalProject.Search as sh
-import O22IaFinalProject.Point as pt
-import O22IaFinalProject.Graph as gp
+import Board as bd
+import Search as sh
+import Point as pt
+import Graph as gp
 
 
 class Algorithm:
@@ -41,9 +41,13 @@ class Algorithm:
         search4 = sh.Search(self.board)
         self.board.setW()
         self.found = search4.BestFS(self.board.start, self.board.goal)
+
         self.algo = "A*"
 
     def showAlgorithm(self):
+        self.board.setStart(self.board.start)
+        self.board.setGoal(self.board.goal)
         g = gp.Graph(self.boardOriginal, self.board)
         g.add(self.algo, self.found)
+
         g.updateGraph()

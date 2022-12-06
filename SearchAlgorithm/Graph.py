@@ -22,6 +22,9 @@ class Graph:
         self.found = found
 
     def transformBoard(self, b):
+        self.b = b
+        self.n = b.n
+        self.m = b.m
         board = [[1 for _ in range(b.n)] for _ in range(b.m)]
 
         for i in range(b.n):
@@ -39,14 +42,40 @@ class Graph:
                     board[i][j] = self.path
                 elif v == 'V':
                     board[i][j] = self.visited
-
         return board
+
+    def setText(self, b):
+
+        self.notVisited = 5  # Not Visited
+        self.visited = 1  # Visited
+        self.path = 4  # Path
+        self.obstacle = 0  # Obstacle
+        self.start = 2  # Start
+        self.goal = 3  # Goal
+
+        for i in range(self.n):
+            for j in range(self.m):
+                c = ""
+                v = b[j][i]
+                if v == self.notVisited:
+                    c = "NV"
+                elif v == self.obstacle:
+                    c = "O"
+                elif v == self.goal:
+                    c = "G"
+                elif v == self.start:
+                    c = "S"
+                elif v == self.path:
+                    c = "P"
+                elif v == self.visited:
+                    c = "V"
+                self.ax.text(i, j, str(c), va='center', ha='center')
 
     def updateGraph(self):
 
-        a = self.transformBoard(self.board)
-
         fig, self.ax = plt.subplots()
+        a = self.transformBoard(self.board)
+        self.setText(a)
         ln = self.ax.matshow(a)
         self.ax.set_title(self.algorithm)
         self.ax.set_xlabel("Searching...")
@@ -58,6 +87,7 @@ class Graph:
             self.ax.clear()
 
             a = self.transformBoard(self.transform)
+            self.setText(a)
             self.ax.matshow(a)
             self.ax.set_xlabel(str(self.found))
             self.ax.set_title(self.algorithm)

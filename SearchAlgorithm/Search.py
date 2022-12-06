@@ -35,6 +35,7 @@ class Search:
                         n, sucesor, self.board.path[n.y][n.x].t)
                     # Encontramos el objetivo ?
                     if self.board.comparePoints(sucesor, goal):
+                        self.board.setGoal(goal)
                         found = True
                         break
                         # Agregalo a la Cola
@@ -72,6 +73,7 @@ class Search:
                         n, sucesor, self.board.path[n.y][n.x].t)
                     # Encontramos el objetivo ?
                     if self.board.comparePoints(sucesor, goal):
+                        self.board.setGoal(goal)
                         found = True
                         break
                         # Agregalo a la Cola
@@ -93,7 +95,8 @@ class Search:
                 w = self.board.board[i.y][i.x].w
 
                 if w == 0:
-                    self.board.markVisited(i)
+                    # self.board.markVisited(i)
+                    self.board.setGoal(goal)
                     return True
 
                 if w < minW and self.board.getValue(i) != "#" and not self.board.isVisited(i):
@@ -124,7 +127,8 @@ class Search:
                 if self.board.getValue(sucesor) != '#' and not self.board.isVisited(sucesor) and not self.board.comparePoints(sucesor, start):
                     # Encontramos el objetivo ?
                     if self.board.comparePoints(sucesor, goal):
-                        self.board.markVisited(goal)
+                        self.board.setGoal(goal)
+                        # self.board.markVisited(goal)
                         return True
                     # Agregalo a la Cola
                     w = self.board.board[sucesor.y][sucesor.x].w
